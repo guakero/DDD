@@ -45,10 +45,23 @@
             background-size: contain;
             background-position: center;
             background-repeat: no-repeat;
-            aspect-ratio: 9 / 16;
-
             border: 1px solid rgba(188, 19, 254, 0.25);
             overflow: hidden;
+            width: 100%;
+            max-width: 500px;
+            margin: 0 auto;
+        }
+        
+        @media (max-width: 768px) {
+            .main-container {
+                aspect-ratio: 9 / 16;
+            }
+        }
+        
+        @media (min-width: 769px) {
+            .main-container {
+                aspect-ratio: 9 / 16;
+            }
         }
 
         .scanline {
@@ -71,12 +84,19 @@
             background: rgba(0, 0, 0, 0.5);
             transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
             border: 1px solid rgba(255, 255, 255, 0.1);
-            width: 82px;
-            height: 66px;
+            width: 70px;
+            height: 60px;
             display: inline-flex;
             align-items: center;
             justify-content: center;
             padding: 0;
+        }
+        
+        @media (min-width: 640px) {
+            .platform-card {
+                width: 82px;
+                height: 66px;
+            }
         }
 
         .platform-card:hover {
@@ -84,8 +104,6 @@
             border-color: #bc13fe;
             transform: scale(1.02);
         }
-
-
 
         .glitch {
             animation: glitch 1s linear infinite;
@@ -98,22 +116,19 @@
         }
     </style>
 </head>
-<body class="min-h-screen flex items-center justify-center p-4">
+<body class="min-h-screen flex items-center justify-center p-2 sm:p-3 md:p-4">
 
     <!-- Capa de viñeta para mejorar contraste -->
     <div class="fixed top-0 left-0 w-full h-full bg-[radial-gradient(circle,transparent_20%,black_120%)] opacity-70 pointer-events-none"></div>
 
-    <div class="main-container rounded-3xl pt-8 px-4 md:pt-12 md:px-6 relative z-20 shadow-[0_0_60px_rgba(0,0,0,0.9)]" style="width: auto; height: auto;">
+    <div class="main-container rounded-3xl pt-6 sm:pt-8 md:pt-12 px-3 sm:px-4 md:px-6 relative z-20 shadow-[0_0_60px_rgba(0,0,0,0.9)] flex flex-col" style="height: auto;" >
         <div class="scanline"></div>
-        
-
 
         <!-- Plataformas de Streaming -->
-        <div class="flex flex-col items-center -mt-4">
-            <h3 class="text-center text-[9px] text-gray-500 uppercase tracking-[0.4em] mb-6">Disponible en streaming</h3>
-            <!-- espacio en blanco entre texto y botones -->
-            <div class="h-80"></div>
-            <div class="h-20"></div>
+        <div class="flex flex-col items-center h-full -mt-4 sm:-mt-2">
+            <h3 class="text-center text-[9px] sm:text-[11px] md:text-[12px] text-gray-500 uppercase tracking-[0.4em] mb-4 sm:mb-6">Disponible en streaming</h3>
+            <!-- espacio dinámico entre texto y botones -->
+            <div class="flex-grow"></div>
             <div class="flex space-x-4 -mt-2">
             
             <a href="https://open.spotify.com/intl-es/album/2VBhdnTrBNzZQghgxQYJwb" target="_blank" rel="noopener noreferrer" class="platform-card flex items-center justify-center p-3 rounded-2xl group">
@@ -136,7 +151,7 @@
         </div>
 
         <!-- Footer -->
-        <footer class="mt-10 text-center">
+        <footer class="mt-6 sm:mt-8 md:mt-10 text-center">
             <div class="text-[8px] text-gray-500 uppercase tracking-[0.5em]">Death Disco Official Release</div>
         </footer>
     </div>
